@@ -1,0 +1,123 @@
+# Complete source tree
+
+Installed dependencies, build outputs, local databases and other ignored runtime files are excluded.
+
+```text
+market-readiness-ai/
+  .dockerignore
+  .env.example
+  .github/dependabot.yml
+  .github/workflows/ci.yml
+  .gitignore
+  CHANGELOG.md
+  CODE_OF_CONDUCT.md
+  CONTRIBUTING.md
+  LICENSE
+  NOTICE
+  README.md
+  SECURITY.md
+  apps/api/Dockerfile
+  apps/api/__init__.py
+  apps/api/main.py
+  apps/api/static/LICENSE
+  apps/api/static/NOTICE
+  apps/api/static/README.md
+  apps/api/static/favicon-32x32.png
+  apps/api/static/swagger-ui-bundle.js
+  apps/api/static/swagger-ui.css
+  apps/web/Dockerfile
+  apps/web/eslint.config.js
+  apps/web/index.html
+  apps/web/nginx.conf
+  apps/web/package.json
+  apps/web/playwright.config.ts
+  apps/web/pnpm-lock.yaml
+  apps/web/pnpm-workspace.yaml
+  apps/web/public/favicon.svg
+  apps/web/src/App.tsx
+  apps/web/src/Chart.tsx
+  apps/web/src/Views.tsx
+  apps/web/src/api.test.ts
+  apps/web/src/api.ts
+  apps/web/src/components.tsx
+  apps/web/src/main.tsx
+  apps/web/src/styles.css
+  apps/web/src/types.ts
+  apps/web/tsconfig.json
+  apps/web/vite.config.ts
+  data/sample/ground-truth.json
+  data/sample/portfolio.json
+  data/schemas/dataset.schema.json
+  docker-compose.yml
+  docs/adr/0001-deterministic-core.md
+  docs/adr/0002-forecast-baseline.md
+  docs/adr/0003-storage-and-runtime.md
+  docs/adr/0004-local-open-source.md
+  docs/ai-design.md
+  docs/api.md
+  docs/architecture.md
+  docs/architecture.mmd
+  docs/architecture.spec.json
+  docs/benchmarks/local-qwen3-8b/evaluation.csv
+  docs/benchmarks/local-qwen3-8b/performance.csv
+  docs/benchmarks/local-qwen3-8b/results.json
+  docs/benchmarks/local-qwen3-8b/summary.md
+  docs/benchmarks/native-no-llm/evaluation.csv
+  docs/benchmarks/native-no-llm/performance.csv
+  docs/benchmarks/native-no-llm/results.json
+  docs/benchmarks/native-no-llm/summary.md
+  docs/data-model.md
+  docs/dependency-inventory.json
+  docs/development.md
+  docs/evaluation.md
+  docs/images/market-evidence.png
+  docs/images/mobile.png
+  docs/images/overview.png
+  docs/images/portfolio.png
+  docs/images/scenario.png
+  docs/open-source-licenses.md
+  docs/openapi.json
+  docs/release-checklist.md
+  docs/repository-tree.md
+  docs/roadmap.md
+  docs/screenshots.md
+  docs/security.md
+  docs/verification.json
+  packages/marketreadiness/__init__.py
+  packages/marketreadiness/ai/__init__.py
+  packages/marketreadiness/ai/briefing.py
+  packages/marketreadiness/ai/runtime.py
+  packages/marketreadiness/data/__init__.py
+  packages/marketreadiness/data/generator.py
+  packages/marketreadiness/data/store.py
+  packages/marketreadiness/data/validation.py
+  packages/marketreadiness/domain/__init__.py
+  packages/marketreadiness/domain/forecast.py
+  packages/marketreadiness/domain/planning.py
+  packages/marketreadiness/domain/schemas.py
+  packages/marketreadiness/domain/transfers.py
+  packages/marketreadiness/evaluation/__init__.py
+  packages/marketreadiness/evaluation/benchmark.py
+  packages/marketreadiness/services/__init__.py
+  packages/marketreadiness/services/portfolio.py
+  pyproject.toml
+  requirements-dev.txt
+  requirements.txt
+  scripts/check_repository.py
+  scripts/init-db.sql
+  scripts/licenses.py
+  scripts/lock_python.py
+  scripts/package_release.py
+  scripts/smoke.py
+  scripts/vendor_docs.py
+  tests/benchmarks/README.md
+  tests/conftest.py
+  tests/e2e/workflow.spec.ts
+  tests/integration/test_api.py
+  tests/unit/test_planning.py
+  tests/unit/test_validation_ai.py
+```
+
+112 source/documentation/artifact files.
+
+The source archive uses this same inclusion policy.

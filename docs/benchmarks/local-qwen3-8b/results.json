@@ -1,0 +1,109 @@
+{
+  "generated_at": "2026-09-29T01:24:11.869981+00:00",
+  "hardware": {
+    "os": "macOS-26.6.2-arm64-arm-64bit",
+    "architecture": "arm64",
+    "cpu": "Apple M5",
+    "logical_cpus": 10,
+    "ram_bytes": 17179869184,
+    "python": "3.12.14",
+    "versions": {
+      "fastapi": "0.141.1",
+      "polars": "1.44.2",
+      "pydantic": "2.13.5",
+      "sqlalchemy": "2.1.1"
+    }
+  },
+  "configuration": {
+    "seed": 42,
+    "algorithm": "mrp-1.0",
+    "horizon_days": 90,
+    "forecast": "weekday-mean-v1",
+    "llm_model": "qwen3:8b",
+    "memory_method": "tracemalloc separate untimed pass; excludes native Polars allocations and model memory"
+  },
+  "evaluation": {
+    "constraint_exact_matches": 14,
+    "constraint_cases": 14,
+    "constraint_date_mae_days_matched_cases": 0,
+    "constraint_date_cases_matched": 5,
+    "readiness_actual": 85.0,
+    "readiness_expected": 85.0,
+    "readiness_absolute_error": 0.0,
+    "forecast_wape": 0.094,
+    "forecast_backtest_observations": 1176,
+    "transfer_rule_passes": 6,
+    "transfer_cases": 6,
+    "grounded_statements": 8,
+    "statement_count": 8,
+    "brief_mode": "local-llm"
+  },
+  "performance": [
+    {
+      "markets": 14,
+      "records": 5024,
+      "requirements": 84,
+      "seed": 42,
+      "median_ms": 4.149,
+      "max_ms": 13.971,
+      "min_ms": 4.137,
+      "repeats": 3,
+      "python_peak_allocated_mib": 3.019,
+      "samples_ms": [
+        4.149208019953221,
+        13.970666972454637,
+        4.13712504087016
+      ]
+    }
+  ],
+  "llm_telemetry": {
+    "episode_id": "83fea8a9-8c9e-4be0-b0cc-dc3a9b479af0",
+    "data_version": "fiber-demo-s42-x1",
+    "result_id": "run-851571af5a716de94fae",
+    "algorithm_version": "mrp-1.0",
+    "prompt_version": "evidence-selection-v1",
+    "provider": "ollama",
+    "model": "qwen3:8b",
+    "retries": 0,
+    "validation_failures": 0,
+    "tool_calls": [],
+    "input_source_ids": [
+      "run-851571af5a716de94fae:portfolio",
+      "run-851571af5a716de94fae:m00-00",
+      "run-851571af5a716de94fae:m00-11",
+      "run-851571af5a716de94fae:m00-04",
+      "run-851571af5a716de94fae:m00-06",
+      "run-851571af5a716de94fae:m00-09",
+      "req-plan-m00-00-1-fiber",
+      "req-plan-m00-11-1-splice",
+      "req-plan-m00-04-1-fiber",
+      "req-plan-m00-06-2-olt",
+      "req-plan-m00-09-2-ont"
+    ],
+    "seed": 42,
+    "runtime_version": "0.34.4",
+    "model_digest": "500a1f067a9f782620b40bee6f7b0c89e17ae61f686b92c24933e4ca4b2b8b41",
+    "model_details": {
+      "parent_model": "",
+      "format": "gguf",
+      "family": "qwen3",
+      "families": [
+        "qwen3"
+      ],
+      "parameter_size": "8.2B",
+      "quantization_level": "Q4_K_M",
+      "context_length": 40960,
+      "embedding_length": 4096
+    },
+    "prompt_tokens": 1179,
+    "completion_tokens": 241,
+    "model_reported": "qwen3:8b",
+    "options": {
+      "temperature": 0,
+      "seed": 42,
+      "num_predict": 300,
+      "num_ctx": 4096
+    },
+    "latency_ms": 13916.92
+  }
+}

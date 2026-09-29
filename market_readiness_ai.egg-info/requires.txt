@@ -1,0 +1,15 @@
+fastapi<1,>=0.128
+uvicorn<1,>=0.35
+pydantic<3,>=2.12
+sqlalchemy<3,>=2.0.40
+psycopg[binary]<4,>=3.2
+httpx<1,>=0.28
+polars<2,>=1.30
+
+[dev]
+pytest<10,>=8.3
+pytest-cov<8,>=6
+ruff<1,>=0.12
+pip-audit<3,>=2.9
+PyYAML<7,>=6.0.2
+jsonschema<5,>=4.23

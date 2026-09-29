@@ -1,0 +1,23 @@
+Metadata-Version: 2.4
+Name: market-readiness-ai
+Version: 0.1.0
+Summary: Evidence-first material readiness for infrastructure deployment
+License-Expression: Apache-2.0
+Requires-Python: >=3.12
+License-File: LICENSE
+License-File: NOTICE
+Requires-Dist: fastapi<1,>=0.128
+Requires-Dist: uvicorn<1,>=0.35
+Requires-Dist: pydantic<3,>=2.12
+Requires-Dist: sqlalchemy<3,>=2.0.40
+Requires-Dist: psycopg[binary]<4,>=3.2
+Requires-Dist: httpx<1,>=0.28
+Requires-Dist: polars<2,>=1.30
+Provides-Extra: dev
+Requires-Dist: pytest<10,>=8.3; extra == "dev"
+Requires-Dist: pytest-cov<8,>=6; extra == "dev"
+Requires-Dist: ruff<1,>=0.12; extra == "dev"
+Requires-Dist: pip-audit<3,>=2.9; extra == "dev"
+Requires-Dist: PyYAML<7,>=6.0.2; extra == "dev"
+Requires-Dist: jsonschema<5,>=4.23; extra == "dev"
+Dynamic: license-file

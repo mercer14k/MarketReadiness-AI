@@ -1,0 +1,42 @@
+{
+  "checked_at": "2026-09-29T01:46:19.394710+00:00",
+  "status": "local release candidate",
+  "backend": {
+    "tests_passed": 57,
+    "database_tested_locally": "SQLite",
+    "lint": "passed",
+    "schema_checks": "passed",
+    "wheel_build": "passed"
+  },
+  "frontend": {
+    "unit_tests_passed": 3,
+    "typecheck": "passed",
+    "lint": "passed",
+    "production_build": "passed"
+  },
+  "browser": {
+    "workflow_tests_passed": 3,
+    "browser": "installed Google Chrome through Playwright",
+    "accessibility": "No serious or critical axe violations on portfolio",
+    "viewports": [
+      "1440x1180",
+      "390x844"
+    ]
+  },
+  "local_ai": {
+    "runtime": "Ollama 0.34.4",
+    "model": "qwen3:8b Q4_K_M",
+    "mode": "local-llm",
+    "evidence": "docs/benchmarks/local-qwen3-8b/results.json"
+  },
+  "audits": {
+    "python_runtime": "No known vulnerabilities found",
+    "javascript_runtime": "No known vulnerabilities found",
+    "scope": "Known-advisory checks at this time; not a security certification"
+  },
+  "unverified": [
+    "Docker Compose execution: Docker Engine unavailable",
+    "PostgreSQL runtime integration: provided CI gate, not run locally",
+    "GitHub CI: local source has not been published"
+  ]
+}

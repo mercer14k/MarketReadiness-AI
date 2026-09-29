@@ -1,0 +1,64 @@
+name: marketreadiness
+services:
+  db:
+    image: postgres:17-alpine
+    environment:
+      POSTGRES_DB: marketreadiness
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: local-demo-admin-only
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+      - ./scripts/init-db.sql:/docker-entrypoint-initdb.d/01-roles.sql:ro
+    healthcheck:
+      test: [CMD-SHELL, "pg_isready -U postgres -d marketreadiness"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+    restart: unless-stopped
+  api:
+    build:
+      context: .
+      dockerfile: apps/api/Dockerfile
+    environment:
+      DATABASE_URL: postgresql+psycopg://appwriter:local-demo-writer-only@db:5432/marketreadiness
+      READ_DATABASE_URL: postgresql+psycopg://appreader:local-demo-reader-only@db:5432/marketreadiness
+      APP_MODE: ${APP_MODE:-demo}
+      READ_API_TOKEN: ${READ_API_TOKEN:-}
+      WRITE_API_TOKEN: ${WRITE_API_TOKEN:-}
+      ALLOWED_HOSTS: ${ALLOWED_HOSTS:-localhost,127.0.0.1,api}
+      LLM_PROVIDER: ${LLM_PROVIDER:-none}
+      LLM_MODEL: ${LLM_MODEL:-qwen3:4b}
+      OLLAMA_BASE_URL: ${OLLAMA_BASE_URL:-http://ollama:11434}
+    depends_on:
+      db:
+        condition: service_healthy
+    ports: ["127.0.0.1:8000:8000"]
+    read_only: true
+    tmpfs: [/tmp]
+    security_opt: [no-new-privileges:true]
+    cap_drop: [ALL]
+    restart: unless-stopped
+  web:
+    build:
+      context: .
+      dockerfile: apps/web/Dockerfile
+    depends_on:
+      api:
+        condition: service_healthy
+    ports: ["127.0.0.1:8080:8080"]
+    read_only: true
+    tmpfs: [/tmp]
+    security_opt: [no-new-privileges:true]
+    cap_drop: [ALL]
+    restart: unless-stopped
+  ollama:
+    image: ollama/ollama:0.34.4
+    profiles: [ai]
+    environment:
+      OLLAMA_NO_CLOUD: "1"
+      OLLAMA_NOPRUNE: "1"
+    volumes: [ollama:/root/.ollama]
+    restart: unless-stopped
+volumes:
+  pgdata:
+  ollama:

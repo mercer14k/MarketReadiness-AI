@@ -1,0 +1,769 @@
+{
+  "$defs": {
+    "BOM": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "maxLength": 100,
+          "minLength": 1,
+          "pattern": "^[a-zA-Z0-9_.:-]+$",
+          "title": "Id",
+          "type": "string"
+        },
+        "source_id": {
+          "maxLength": 100,
+          "minLength": 1,
+          "pattern": "^[a-zA-Z0-9_.:-]+$",
+          "title": "Source Id",
+          "type": "string"
+        },
+        "ingested_at": {
+          "format": "date-time",
+          "title": "Ingested At",
+          "type": "string"
+        },
+        "validation_status": {
+          "default": "valid",
+          "enum": [
+            "valid",
+            "warning"
+          ],
+          "title": "Validation Status",
+          "type": "string"
+        },
+        "lineage": {
+          "additionalProperties": {
+            "type": "string"
+          },
+          "title": "Lineage",
+          "type": "object"
+        },
+        "phase": {
+          "enum": [
+            "Civil works",
+            "Fiber placement",
+            "Activation"
+          ],
+          "title": "Phase",
+          "type": "string"
+        },
+        "material_id": {
+          "maxLength": 100,
+          "minLength": 1,
+          "pattern": "^[a-zA-Z0-9_.:-]+$",
+          "title": "Material Id",
+          "type": "string"
+        },
+        "units_per_home": {
+          "exclusiveMinimum": 0,
+          "maximum": 100,
+          "title": "Units Per Home",
+          "type": "number"
+        }
+      },
+      "required": [
+        "id",
+        "source_id",
+        "ingested_at",
+        "phase",
+        "material_id",
+        "units_per_home"
+      ],
+      "title": "BOM",
+      "type": "object"
+    },
+    "BuildPlan": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "maxLength": 100,
+          "minLength": 1,
+          "pattern": "^[a-zA-Z0-9_.:-]+$",
+          "title": "Id",
+          "type": "string"
+        },
+        "source_id": {
+          "maxLength": 100,
+          "minLength": 1,
+          "pattern": "^[a-zA-Z0-9_.:-]+$",
+          "title": "Source Id",
+          "type": "string"
+        },
+        "ingested_at": {
+          "format": "date-time",
+          "title": "Ingested At",
+          "type": "string"
+        },
+        "validation_status": {
+          "default": "valid",
+          "enum": [
+            "valid",
+            "warning"
+          ],
+          "title": "Validation Status",
+          "type": "string"
+        },
+        "lineage": {
+          "additionalProperties": {
+            "type": "string"
+          },
+          "title": "Lineage",
+          "type": "object"
+        },
+        "market_id": {
+          "maxLength": 100,
+          "minLength": 1,
+          "pattern": "^[a-zA-Z0-9_.:-]+$",
+          "title": "Market Id",
+          "type": "string"
+        },
+        "phase": {
+          "enum": [
+            "Civil works",
+            "Fiber placement",
+            "Activation"
+          ],
+          "title": "Phase",
+          "type": "string"
+        },
+        "homes": {
+          "exclusiveMinimum": 0,
+          "maximum": 100000,
+          "title": "Homes",
+          "type": "integer"
+        },
+        "start": {
+          "format": "date",
+          "title": "Start",
+          "type": "string"
+        },
+        "duration_days": {
+          "maximum": 180,
+          "minimum": 1,
+          "title": "Duration Days",
+          "type": "integer"
+        },
+        "predecessor_id": {
+          "anyOf": [
+            {
+              "maxLength": 100,
+              "minLength": 1,
+              "pattern": "^[a-zA-Z0-9_.:-]+$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Predecessor Id"
+        }
+      },
+      "required": [
+        "id",
+        "source_id",
+        "ingested_at",
+        "market_id",
+        "phase",
+        "homes",
+        "start",
+        "duration_days"
+      ],
+      "title": "BuildPlan",
+      "type": "object"
+    },
+    "Commitment": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "maxLength": 100,
+          "minLength": 1,
+          "pattern": "^[a-zA-Z0-9_.:-]+$",
+          "title": "Id",
+          "type": "string"
+        },
+        "source_id": {
+          "maxLength": 100,
+          "minLength": 1,
+          "pattern": "^[a-zA-Z0-9_.:-]+$",
+          "title": "Source Id",
+          "type": "string"
+        },
+        "ingested_at": {
+          "format": "date-time",
+          "title": "Ingested At",
+          "type": "string"
+        },
+        "validation_status": {
+          "default": "valid",
+          "enum": [
+            "valid",
+            "warning"
+          ],
+          "title": "Validation Status",
+          "type": "string"
+        },
+        "lineage": {
+          "additionalProperties": {
+            "type": "string"
+          },
+          "title": "Lineage",
+          "type": "object"
+        },
+        "po_id": {
+          "maxLength": 100,
+          "minLength": 1,
+          "pattern": "^[a-zA-Z0-9_.:-]+$",
+          "title": "Po Id",
+          "type": "string"
+        },
+        "promised_date": {
+          "format": "date",
+          "title": "Promised Date",
+          "type": "string"
+        },
+        "confirmed": {
+          "title": "Confirmed",
+          "type": "boolean"
+        },
+        "updated_at": {
+          "format": "date-time",
+          "title": "Updated At",
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "source_id",
+        "ingested_at",
+        "po_id",
+        "promised_date",
+        "confirmed",
+        "updated_at"
+      ],
+      "title": "Commitment",
+      "type": "object"
+    },
+    "Consumption": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "maxLength": 100,
+          "minLength": 1,
+          "pattern": "^[a-zA-Z0-9_.:-]+$",
+          "title": "Id",
+          "type": "string"
+        },
+        "source_id": {
+          "maxLength": 100,
+          "minLength": 1,
+          "pattern": "^[a-zA-Z0-9_.:-]+$",
+          "title": "Source Id",
+          "type": "string"
+        },
+        "ingested_at": {
+          "format": "date-time",
+          "title": "Ingested At",
+          "type": "string"
+        },
+        "validation_status": {
+          "default": "valid",
+          "enum": [
+            "valid",
+            "warning"
+          ],
+          "title": "Validation Status",
+          "type": "string"
+        },
+        "lineage": {
+          "additionalProperties": {
+            "type": "string"
+          },
+          "title": "Lineage",
+          "type": "object"
+        },
+        "market_id": {
+          "maxLength": 100,
+          "minLength": 1,
+          "pattern": "^[a-zA-Z0-9_.:-]+$",
+          "title": "Market Id",
+          "type": "string"
+        },
+        "material_id": {
+          "maxLength": 100,
+          "minLength": 1,
+          "pattern": "^[a-zA-Z0-9_.:-]+$",
+          "title": "Material Id",
+          "type": "string"
+        },
+        "date": {
+          "format": "date",
+          "title": "Date",
+          "type": "string"
+        },
+        "quantity": {
+          "maximum": 1000000000,
+          "minimum": 0,
+          "title": "Quantity",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "id",
+        "source_id",
+        "ingested_at",
+        "market_id",
+        "material_id",
+        "date",
+        "quantity"
+      ],
+      "title": "Consumption",
+      "type": "object"
+    },
+    "Inventory": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "maxLength": 100,
+          "minLength": 1,
+          "pattern": "^[a-zA-Z0-9_.:-]+$",
+          "title": "Id",
+          "type": "string"
+        },
+        "source_id": {
+          "maxLength": 100,
+          "minLength": 1,
+          "pattern": "^[a-zA-Z0-9_.:-]+$",
+          "title": "Source Id",
+          "type": "string"
+        },
+        "ingested_at": {
+          "format": "date-time",
+          "title": "Ingested At",
+          "type": "string"
+        },
+        "validation_status": {
+          "default": "valid",
+          "enum": [
+            "valid",
+            "warning"
+          ],
+          "title": "Validation Status",
+          "type": "string"
+        },
+        "lineage": {
+          "additionalProperties": {
+            "type": "string"
+          },
+          "title": "Lineage",
+          "type": "object"
+        },
+        "market_id": {
+          "maxLength": 100,
+          "minLength": 1,
+          "pattern": "^[a-zA-Z0-9_.:-]+$",
+          "title": "Market Id",
+          "type": "string"
+        },
+        "material_id": {
+          "maxLength": 100,
+          "minLength": 1,
+          "pattern": "^[a-zA-Z0-9_.:-]+$",
+          "title": "Material Id",
+          "type": "string"
+        },
+        "quantity": {
+          "maximum": 1000000000,
+          "minimum": 0,
+          "title": "Quantity",
+          "type": "integer"
+        },
+        "reserved": {
+          "default": 0,
+          "maximum": 1000000000,
+          "minimum": 0,
+          "title": "Reserved",
+          "type": "integer"
+        },
+        "quarantined": {
+          "default": 0,
+          "maximum": 1000000000,
+          "minimum": 0,
+          "title": "Quarantined",
+          "type": "integer"
+        },
+        "snapshot_date": {
+          "format": "date",
+          "title": "Snapshot Date",
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "source_id",
+        "ingested_at",
+        "market_id",
+        "material_id",
+        "quantity",
+        "snapshot_date"
+      ],
+      "title": "Inventory",
+      "type": "object"
+    },
+    "Market": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "maxLength": 100,
+          "minLength": 1,
+          "pattern": "^[a-zA-Z0-9_.:-]+$",
+          "title": "Id",
+          "type": "string"
+        },
+        "source_id": {
+          "maxLength": 100,
+          "minLength": 1,
+          "pattern": "^[a-zA-Z0-9_.:-]+$",
+          "title": "Source Id",
+          "type": "string"
+        },
+        "ingested_at": {
+          "format": "date-time",
+          "title": "Ingested At",
+          "type": "string"
+        },
+        "validation_status": {
+          "default": "valid",
+          "enum": [
+            "valid",
+            "warning"
+          ],
+          "title": "Validation Status",
+          "type": "string"
+        },
+        "lineage": {
+          "additionalProperties": {
+            "type": "string"
+          },
+          "title": "Lineage",
+          "type": "object"
+        },
+        "name": {
+          "maxLength": 100,
+          "minLength": 1,
+          "title": "Name",
+          "type": "string"
+        },
+        "region": {
+          "maxLength": 40,
+          "minLength": 1,
+          "title": "Region",
+          "type": "string"
+        },
+        "priority": {
+          "maximum": 5,
+          "minimum": 1,
+          "title": "Priority",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "id",
+        "source_id",
+        "ingested_at",
+        "name",
+        "region",
+        "priority"
+      ],
+      "title": "Market",
+      "type": "object"
+    },
+    "Material": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "maxLength": 100,
+          "minLength": 1,
+          "pattern": "^[a-zA-Z0-9_.:-]+$",
+          "title": "Id",
+          "type": "string"
+        },
+        "source_id": {
+          "maxLength": 100,
+          "minLength": 1,
+          "pattern": "^[a-zA-Z0-9_.:-]+$",
+          "title": "Source Id",
+          "type": "string"
+        },
+        "ingested_at": {
+          "format": "date-time",
+          "title": "Ingested At",
+          "type": "string"
+        },
+        "validation_status": {
+          "default": "valid",
+          "enum": [
+            "valid",
+            "warning"
+          ],
+          "title": "Validation Status",
+          "type": "string"
+        },
+        "lineage": {
+          "additionalProperties": {
+            "type": "string"
+          },
+          "title": "Lineage",
+          "type": "object"
+        },
+        "name": {
+          "maxLength": 100,
+          "minLength": 1,
+          "title": "Name",
+          "type": "string"
+        },
+        "family": {
+          "enum": [
+            "Fiber",
+            "Civil",
+            "Electronics",
+            "Connectivity"
+          ],
+          "title": "Family",
+          "type": "string"
+        },
+        "unit": {
+          "maxLength": 20,
+          "minLength": 1,
+          "title": "Unit",
+          "type": "string"
+        },
+        "safety_stock": {
+          "maximum": 1000000000,
+          "minimum": 0,
+          "title": "Safety Stock",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "id",
+        "source_id",
+        "ingested_at",
+        "name",
+        "family",
+        "unit",
+        "safety_stock"
+      ],
+      "title": "Material",
+      "type": "object"
+    },
+    "PurchaseOrder": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "maxLength": 100,
+          "minLength": 1,
+          "pattern": "^[a-zA-Z0-9_.:-]+$",
+          "title": "Id",
+          "type": "string"
+        },
+        "source_id": {
+          "maxLength": 100,
+          "minLength": 1,
+          "pattern": "^[a-zA-Z0-9_.:-]+$",
+          "title": "Source Id",
+          "type": "string"
+        },
+        "ingested_at": {
+          "format": "date-time",
+          "title": "Ingested At",
+          "type": "string"
+        },
+        "validation_status": {
+          "default": "valid",
+          "enum": [
+            "valid",
+            "warning"
+          ],
+          "title": "Validation Status",
+          "type": "string"
+        },
+        "lineage": {
+          "additionalProperties": {
+            "type": "string"
+          },
+          "title": "Lineage",
+          "type": "object"
+        },
+        "market_id": {
+          "maxLength": 100,
+          "minLength": 1,
+          "pattern": "^[a-zA-Z0-9_.:-]+$",
+          "title": "Market Id",
+          "type": "string"
+        },
+        "material_id": {
+          "maxLength": 100,
+          "minLength": 1,
+          "pattern": "^[a-zA-Z0-9_.:-]+$",
+          "title": "Material Id",
+          "type": "string"
+        },
+        "supplier": {
+          "maxLength": 100,
+          "minLength": 1,
+          "title": "Supplier",
+          "type": "string"
+        },
+        "quantity": {
+          "maximum": 1000000000,
+          "minimum": 0,
+          "title": "Quantity",
+          "type": "integer"
+        },
+        "received": {
+          "default": 0,
+          "maximum": 1000000000,
+          "minimum": 0,
+          "title": "Received",
+          "type": "integer"
+        },
+        "expected_date": {
+          "format": "date",
+          "title": "Expected Date",
+          "type": "string"
+        },
+        "status": {
+          "default": "open",
+          "enum": [
+            "open",
+            "cancelled",
+            "closed"
+          ],
+          "title": "Status",
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "source_id",
+        "ingested_at",
+        "market_id",
+        "material_id",
+        "supplier",
+        "quantity",
+        "expected_date"
+      ],
+      "title": "PurchaseOrder",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "id": {
+      "maxLength": 100,
+      "minLength": 1,
+      "pattern": "^[a-zA-Z0-9_.:-]+$",
+      "title": "Id",
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "1.0",
+      "default": "1.0",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "as_of": {
+      "format": "date",
+      "title": "As Of",
+      "type": "string"
+    },
+    "seed": {
+      "title": "Seed",
+      "type": "integer"
+    },
+    "markets": {
+      "items": {
+        "$ref": "#/$defs/Market"
+      },
+      "maxItems": 2000,
+      "minItems": 1,
+      "title": "Markets",
+      "type": "array"
+    },
+    "materials": {
+      "items": {
+        "$ref": "#/$defs/Material"
+      },
+      "maxItems": 100,
+      "minItems": 1,
+      "title": "Materials",
+      "type": "array"
+    },
+    "boms": {
+      "items": {
+        "$ref": "#/$defs/BOM"
+      },
+      "maxItems": 300,
+      "minItems": 1,
+      "title": "Boms",
+      "type": "array"
+    },
+    "plans": {
+      "items": {
+        "$ref": "#/$defs/BuildPlan"
+      },
+      "maxItems": 12000,
+      "minItems": 1,
+      "title": "Plans",
+      "type": "array"
+    },
+    "inventory": {
+      "items": {
+        "$ref": "#/$defs/Inventory"
+      },
+      "maxItems": 200000,
+      "title": "Inventory",
+      "type": "array"
+    },
+    "purchase_orders": {
+      "items": {
+        "$ref": "#/$defs/PurchaseOrder"
+      },
+      "maxItems": 200000,
+      "title": "Purchase Orders",
+      "type": "array"
+    },
+    "commitments": {
+      "items": {
+        "$ref": "#/$defs/Commitment"
+      },
+      "maxItems": 200000,
+      "title": "Commitments",
+      "type": "array"
+    },
+    "consumption": {
+      "items": {
+        "$ref": "#/$defs/Consumption"
+      },
+      "maxItems": 1000000,
+      "title": "Consumption",
+      "type": "array"
+    }
+  },
+  "required": [
+    "id",
+    "as_of",
+    "seed",
+    "markets",
+    "materials",
+    "boms",
+    "plans",
+    "inventory",
+    "purchase_orders",
+    "commitments",
+    "consumption"
+  ],
+  "title": "Dataset",
+  "type": "object"
+}

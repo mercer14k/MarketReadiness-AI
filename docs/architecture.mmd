@@ -1,0 +1,23 @@
+flowchart LR
+  accTitle: Evidence-first material readiness
+  accDescr: Validated source snapshots feed deterministic planning. The API serves the workspace and optional local model selection&#59; the model cannot modify the ledger.
+  sources["Plans, BOMs, inventory, POs, commitments"]
+  validate["Typed validation and visible reports"]
+  db["PostgreSQL immutable snapshots"]
+  core["Deterministic planning and simulation"]
+  api["FastAPI versioned API"]
+  web["React evidence workspace"]
+  facts["Verified evidence catalog"]
+  llm["Optional local Ollama model"]
+  brief["Schema validation and exact fact rendering"]
+  sources --> validate
+  validate --> db
+  db --> core
+  core --> api
+  api --> web
+  core --> facts
+  facts -->|Untrusted evidence| llm
+  llm -->|Evidence IDs only| brief
+  facts -->|No-LLM fallback| brief
+  brief --> api
+%% portable-canonical-v2:eyJhY2Nlc3NpYmlsaXR5IjoiVmFsaWRhdGVkIHNvdXJjZSBzbmFwc2hvdHMgZmVlZCBkZXRlcm1pbmlzdGljIHBsYW5uaW5nLiBUaGUgQVBJIHNlcnZlcyB0aGUgd29ya3NwYWNlIGFuZCBvcHRpb25hbCBsb2NhbCBtb2RlbCBzZWxlY3Rpb247IHRoZSBtb2RlbCBjYW5ub3QgbW9kaWZ5IHRoZSBsZWRnZXIuIiwiZGF0YSI6eyJkaXJlY3Rpb24iOiJMUiIsImVkZ2VzIjpbeyJmcm9tIjoic291cmNlcyIsInRvIjoidmFsaWRhdGUifSx7ImZyb20iOiJ2YWxpZGF0ZSIsInRvIjoiZGIifSx7ImZyb20iOiJkYiIsInRvIjoiY29yZSJ9LHsiZnJvbSI6ImNvcmUiLCJ0byI6ImFwaSJ9LHsiZnJvbSI6ImFwaSIsInRvIjoid2ViIn0seyJmcm9tIjoiY29yZSIsInRvIjoiZmFjdHMifSx7ImZyb20iOiJmYWN0cyIsImxhYmVsIjoiVW50cnVzdGVkIGV2aWRlbmNlIiwidG8iOiJsbG0ifSx7ImZyb20iOiJsbG0iLCJsYWJlbCI6IkV2aWRlbmNlIElEcyBvbmx5IiwidG8iOiJicmllZiJ9LHsiZnJvbSI6ImZhY3RzIiwibGFiZWwiOiJOby1MTE0gZmFsbGJhY2siLCJ0byI6ImJyaWVmIn0seyJmcm9tIjoiYnJpZWYiLCJ0byI6ImFwaSJ9XSwibm9kZXMiOlt7ImlkIjoic291cmNlcyIsImxhYmVsIjoiUGxhbnMsIEJPTXMsIGludmVudG9yeSwgUE9zLCBjb21taXRtZW50cyJ9LHsiaWQiOiJ2YWxpZGF0ZSIsImxhYmVsIjoiVHlwZWQgdmFsaWRhdGlvbiBhbmQgdmlzaWJsZSByZXBvcnRzIn0seyJpZCI6ImRiIiwibGFiZWwiOiJQb3N0Z3JlU1FMIGltbXV0YWJsZSBzbmFwc2hvdHMifSx7ImlkIjoiY29yZSIsImxhYmVsIjoiRGV0ZXJtaW5pc3RpYyBwbGFubmluZyBhbmQgc2ltdWxhdGlvbiJ9LHsiaWQiOiJhcGkiLCJsYWJlbCI6IkZhc3RBUEkgdmVyc2lvbmVkIEFQSSJ9LHsiaWQiOiJ3ZWIiLCJsYWJlbCI6IlJlYWN0IGV2aWRlbmNlIHdvcmtzcGFjZSJ9LHsiaWQiOiJmYWN0cyIsImxhYmVsIjoiVmVyaWZpZWQgZXZpZGVuY2UgY2F0YWxvZyJ9LHsiaWQiOiJsbG0iLCJsYWJlbCI6Ik9wdGlvbmFsIGxvY2FsIE9sbGFtYSBtb2RlbCJ9LHsiaWQiOiJicmllZiIsImxhYmVsIjoiU2NoZW1hIHZhbGlkYXRpb24gYW5kIGV4YWN0IGZhY3QgcmVuZGVyaW5nIn1dfSwiZGVzY3JpcHRpb24iOm51bGwsImlkIjoiYXJjaGl0ZWN0dXJlIiwia2luZCI6ImZsb3djaGFydCIsInNvdXJjZVNoYTI1NiI6ImJlZWY3MDhlM2M0YmYxNTJiMDRjMDdhZTc2YjM2YTdlMzI4ODQ4ZjZjMTY0ZTk0YTcwZDI5OGE2MGQ0MjQwOTIiLCJzdHlsZXMiOltdLCJ0aXRsZSI6IkV2aWRlbmNlLWZpcnN0IG1hdGVyaWFsIHJlYWRpbmVzcyIsInZlcnNpb24iOjF9

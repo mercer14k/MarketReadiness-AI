@@ -1,0 +1,106 @@
+{
+  "generated_at": "2026-09-29T01:23:57.696287+00:00",
+  "hardware": {
+    "os": "macOS-26.6.2-arm64-arm-64bit",
+    "architecture": "arm64",
+    "cpu": "Apple M5",
+    "logical_cpus": 10,
+    "ram_bytes": 17179869184,
+    "python": "3.12.14",
+    "versions": {
+      "fastapi": "0.141.1",
+      "polars": "1.44.2",
+      "pydantic": "2.13.5",
+      "sqlalchemy": "2.1.1"
+    }
+  },
+  "configuration": {
+    "seed": 42,
+    "algorithm": "mrp-1.0",
+    "horizon_days": 90,
+    "forecast": "weekday-mean-v1",
+    "llm_model": null,
+    "memory_method": "tracemalloc separate untimed pass; excludes native Polars allocations and model memory"
+  },
+  "evaluation": {
+    "constraint_exact_matches": 14,
+    "constraint_cases": 14,
+    "constraint_date_mae_days_matched_cases": 0,
+    "constraint_date_cases_matched": 5,
+    "readiness_actual": 85.0,
+    "readiness_expected": 85.0,
+    "readiness_absolute_error": 0.0,
+    "forecast_wape": 0.094,
+    "forecast_backtest_observations": 1176,
+    "transfer_rule_passes": 6,
+    "transfer_cases": 6,
+    "grounded_statements": 8,
+    "statement_count": 8,
+    "brief_mode": "deterministic"
+  },
+  "performance": [
+    {
+      "markets": 14,
+      "records": 5024,
+      "requirements": 84,
+      "seed": 42,
+      "median_ms": 4.073,
+      "max_ms": 12.199,
+      "min_ms": 3.978,
+      "repeats": 5,
+      "python_peak_allocated_mib": 3.019,
+      "samples_ms": [
+        4.075750010088086,
+        4.073458956554532,
+        3.9776249905116856,
+        12.199042015708983,
+        4.06679097795859
+      ]
+    },
+    {
+      "markets": 140,
+      "records": 50132,
+      "requirements": 840,
+      "seed": 42,
+      "median_ms": 44.437,
+      "max_ms": 67.316,
+      "min_ms": 44.402,
+      "repeats": 5,
+      "python_peak_allocated_mib": 30.264,
+      "samples_ms": [
+        44.43691699998453,
+        67.31641700025648,
+        44.712374976370484,
+        44.40516699105501,
+        44.401667022611946
+      ]
+    }
+  ],
+  "llm_telemetry": {
+    "episode_id": "52121a58-a2b9-4a47-8b5e-41c1266d7dc6",
+    "data_version": "fiber-demo-s42-x1",
+    "result_id": "run-851571af5a716de94fae",
+    "algorithm_version": "mrp-1.0",
+    "prompt_version": "evidence-selection-v1",
+    "provider": "none",
+    "model": null,
+    "retries": 0,
+    "validation_failures": 0,
+    "tool_calls": [],
+    "input_source_ids": [
+      "run-851571af5a716de94fae:portfolio",
+      "run-851571af5a716de94fae:m00-00",
+      "run-851571af5a716de94fae:m00-11",
+      "run-851571af5a716de94fae:m00-04",
+      "run-851571af5a716de94fae:m00-06",
+      "run-851571af5a716de94fae:m00-09",
+      "req-plan-m00-00-1-fiber",
+      "req-plan-m00-11-1-splice",
+      "req-plan-m00-04-1-fiber",
+      "req-plan-m00-06-2-olt",
+      "req-plan-m00-09-2-ont"
+    ],
+    "seed": 42,
+    "latency_ms": 0.0
+  }
+}

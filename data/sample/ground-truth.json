@@ -1,0 +1,18 @@
+{
+  "dataset_id": "fiber-demo-s42-x1",
+  "scope": "Synthetic, hand-reviewed regression oracle; not real-world prediction accuracy",
+  "expected_portfolio_readiness": 85.0,
+  "constraints": {
+    "m00-00": "2026-10-18", "m00-01": null, "m00-02": null, "m00-03": null,
+    "m00-04": "2026-10-26", "m00-05": null, "m00-06": "2026-11-04", "m00-07": null,
+    "m00-08": null, "m00-09": "2026-11-10", "m00-10": null, "m00-11": "2026-10-20",
+    "m00-12": null, "m00-13": null
+  },
+  "seeded_anomalies": [
+    {"id":"commit-po-m00-00-fiber", "case":"confirmed commitment 10 days after phase need date"},
+    {"id":"inv-m00-04-fiber", "case":"quarantined stock excluded; late PO does not fully cover demand"},
+    {"id":"commit-po-m00-06-olt", "case":"unconfirmed commitment excluded"},
+    {"id":"commit-po-m00-09-ont", "case":"late activation material"},
+    {"id":"po-m00-11-splice", "case":"overdue unreceived PO excluded"}
+  ]
+}

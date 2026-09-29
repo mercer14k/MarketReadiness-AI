@@ -1,0 +1,3 @@
+markets,records,requirements,seed,median_ms,max_ms,min_ms,repeats,python_peak_allocated_mib
+14,5024,84,42,4.073,12.199,3.978,5,3.019
+140,50132,840,42,44.437,67.316,44.402,5,30.264

@@ -1,0 +1,33 @@
+{
+  "version": 2,
+  "title": "MarketReadiness architecture",
+  "diagrams": [{
+    "id": "architecture",
+    "title": "Evidence-first material readiness",
+    "kind": "flowchart",
+    "accessibility": "Validated source snapshots feed deterministic planning. The API serves the workspace and optional local model selection; the model cannot modify the ledger.",
+    "data": {
+      "direction": "LR",
+      "nodes": [
+        {"id":"sources","label":"Plans, BOMs, inventory, POs, commitments"},
+        {"id":"validate","label":"Typed validation and visible reports"},
+        {"id":"db","label":"PostgreSQL immutable snapshots"},
+        {"id":"core","label":"Deterministic planning and simulation"},
+        {"id":"api","label":"FastAPI versioned API"},
+        {"id":"web","label":"React evidence workspace"},
+        {"id":"facts","label":"Verified evidence catalog"},
+        {"id":"llm","label":"Optional local Ollama model"},
+        {"id":"brief","label":"Schema validation and exact fact rendering"}
+      ],
+      "edges": [
+        {"from":"sources","to":"validate"}, {"from":"validate","to":"db"},
+        {"from":"db","to":"core"}, {"from":"core","to":"api"},
+        {"from":"api","to":"web"}, {"from":"core","to":"facts"},
+        {"from":"facts","to":"llm","label":"Untrusted evidence"},
+        {"from":"llm","to":"brief","label":"Evidence IDs only"},
+        {"from":"facts","to":"brief","label":"No-LLM fallback"},
+        {"from":"brief","to":"api"}
+      ]
+    }
+  }]
+}

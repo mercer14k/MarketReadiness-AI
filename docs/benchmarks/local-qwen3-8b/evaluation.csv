@@ -1,0 +1,15 @@
+metric,value
+constraint_exact_matches,14
+constraint_cases,14
+constraint_date_mae_days_matched_cases,0
+constraint_date_cases_matched,5
+readiness_actual,85.0
+readiness_expected,85.0
+readiness_absolute_error,0.0
+forecast_wape,0.094
+forecast_backtest_observations,1176
+transfer_rule_passes,6
+transfer_cases,6
+grounded_statements,8
+statement_count,8
+brief_mode,local-llm
